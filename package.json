@@ -1,0 +1,25 @@
+{
+  "name": "maxproff",
+  "version": "1.0.0",
+  "description": "",
+  "main": "email.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karanjakinyanjui/maxproff.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karanjakinyanjui/maxproff/issues"
+  },
+  "homepage": "https://github.com/karanjakinyanjui/maxproff#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.3",
+    "nodemon": "^2.0.22"
+  }
+}
