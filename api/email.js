@@ -1,20 +1,11 @@
 const nodemailer = require("nodemailer");
 
-const password = "X-m2k{EP={!i";
-const email = "contact@bestproff.com";
-
-let configOptions = {
-  host: "mail.bestproff.com",
-  port: 465,
-  tls: {
-    rejectUnauthorized: true,
-    minVersion: "TLSv1.2",
-  },
-};
+const password = process.env.MAIL_PASSWORD;
+const email = process.env.MAIL_USERNAME;
 
 let transporter = nodemailer.createTransport({
-  host: configOptions.host,
-  port: configOptions.port,
+  host: process.env.MAIL_HOST,
+  port: 465,
   secure: true,
   auth: {
     user: email,
