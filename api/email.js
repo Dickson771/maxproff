@@ -22,11 +22,13 @@ let sendEmail = (subject, text, html) => {
     html: html,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-    console.log(`Message sent: ${info.messageId}`);
+  return new Promise((resolve, reject) => {
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        reject(error);
+      }
+      resolve(info);
+    });
   });
 };
 

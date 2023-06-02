@@ -9,15 +9,22 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.post("/send-email", (req, res) => {
+app.post("/send-email", async (req, res) => {
   const { email, subject, message, name } = req.body;
   const html = `
-    <h1>Message from ${name}</h1>
+    <h3>Message from ${name}</h3>
     <h3>Email: ${email}</h3>
     <p>${message}</p>
     `;
-  sendEmail(subject, message, html);
-  res.send("Email sent successfully");
+  try {
+    await sendEmail(subject, message, html);
+    res
+      .status(200)
+      .json({ message: "Email sent successfully", status: "success" });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ message: "Internal Server Error", status: "fail" });
+  }
 });
 
 app.listen(3000, () => {

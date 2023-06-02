@@ -1205,18 +1205,17 @@
           subject: form.subject.value,
           message: form.message.value,
         };
-        console.log(data);
         const res = await axios.post("/send-email", data);
-        // if (res.data.status === "success") {
-        //   sent.style.display = "block";
-        //   error.style.display = "none";
-        //   loading.style.display = "none";
-        //   form.reset();
-        // } else {
-        //   error.style.display = "block";
-        //   sent.style.display = "none";
-        //   loading.style.display = "none";
-        // }
+        if (res.data.status === "success") {
+          sent.style.display = "block";
+          error.style.display = "none";
+          loading.style.display = "none";
+          form.reset();
+        } else {
+          error.style.display = "block";
+          sent.style.display = "none";
+          loading.style.display = "none";
+        }
       };
     </script>
 
