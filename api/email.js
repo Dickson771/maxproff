@@ -16,7 +16,7 @@ let transporter = nodemailer.createTransport({
 let sendEmail = (subject, text, html) => {
   let mailOptions = {
     from: email,
-    to: "ekkinyanjui@gmail.com",
+    to: email,
     subject: subject,
     text: text,
     html: html,
